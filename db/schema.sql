@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS roles;
 
 DROP TABLE IF EXISTS employees;
 
-CREATE TABLE deparments (
+CREATE TABLE departments (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(30) NOT NULL
 );
@@ -16,8 +16,8 @@ CREATE TABLE roles (
     department_id INTEGER,
     
     CONSTRAINT fk_department 
-    FORGEIN KEY (department_id) 
-    REFERENCES deparments(id) 
+    FOREIGN KEY (department_id) 
+    REFERENCES departments(id) 
     ON DELETE CASCADE
 );
 

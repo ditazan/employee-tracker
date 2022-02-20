@@ -24,46 +24,41 @@ const startMenu = [
 ];
 
 const startApp = () => {
-  let selected;
+  inquire
+    .prompt(startMenu)
+    .then((data) => {
+      switch (data.choice) {
+        case "View All Departments":
+            Department.getAll();
+          break;
 
-  try {
-    const { choice } = inquirer.prompt(startMenu);
-    selected = choice;
-  } catch (err) {
-    console.log(err);
-  }
+        case "View Roles":
+            Role.getAll();
+          break;
 
-  try {
-    switch (selected) {
-      case "View All Departments":
+        case "View All Employees":
+          break;
 
-        break;
+        case "Add Department":
+            Department.addNew();
+          break;
 
-      case "View Roles":
+        case "Add Role":
+          break;
 
-        break;
+        case "Add Employee":
+          break;
 
-      case "View All Employees":
-
-        break;
-
-      case "Add Department":
-
-        break;
-
-      case "Add Role":
-
-        break;
-
-      case "Add Employee":
-
-        break;
-
-      case "Update Employee Role":
-          
-        break;
-    }
-  } catch (err) {
-    console.log(err);
-  }
+        case "Update Employee Role":
+          break;
+        case "EXIT":
+          process.exit(1);
+          break;
+      }
+    })
+    .catch((err) => {
+      console.log(`Error has occured:`, err);
+    });
 };
+
+startApp();
