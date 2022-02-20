@@ -18,7 +18,7 @@ CREATE TABLE roles (
     CONSTRAINT fk_department 
     FORGEIN KEY (department_id) 
     REFERENCES deparments(id) 
-    ON DELETE SET NULL
+    ON DELETE CASCADE
 );
 
 CREATE TABLE employees (
