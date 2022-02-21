@@ -23,7 +23,7 @@ const startMenu = [
   },
 ];
 
-const startApp =  () => {
+const startApp = async  () => {
   inquire
     .prompt(startMenu)
     .then((data) => {
@@ -33,7 +33,7 @@ const startApp =  () => {
             startApp();
           break;
 
-        case "View Roles":
+        case "View All Roles":
             Role.getAll();
             startApp();
           break;
