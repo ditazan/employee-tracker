@@ -21,4 +21,6 @@
 * source /db/schema.sql;
 * source /db/schema.sql;
 
+7. Finally run npm start to trach your employees.
+
 
