@@ -23,33 +23,43 @@ const startMenu = [
   },
 ];
 
-const startApp = () => {
+const startApp =  () => {
   inquire
     .prompt(startMenu)
     .then((data) => {
       switch (data.choice) {
         case "View All Departments":
             Department.getAll();
+            startApp();
           break;
 
         case "View Roles":
             Role.getAll();
+            startApp();
           break;
 
         case "View All Employees":
+            Employee.getAll();
+            startApp();
           break;
 
         case "Add Department":
             Department.addNew();
+            startApp();
           break;
 
         case "Add Role":
+            Role.addNew();
+            startApp();
           break;
 
         case "Add Employee":
+            Employee.addNew();
+            startApp();
           break;
 
         case "Update Employee Role":
+            startApp();
           break;
         case "EXIT":
           process.exit(1);
@@ -59,6 +69,7 @@ const startApp = () => {
     .catch((err) => {
       console.log(`Error has occured:`, err);
     });
+
 };
 
 startApp();
